@@ -49,8 +49,6 @@ Optional Visual Studio Code extensions:
 ```bash
 cd /work
 git clone <https://github.com/callahanp/fgdev.git> fg
-cd fg
-ln -s /work/trees ../trees
 ```
 
 The cd and git command above would create /work/fg with the fg-dev materials.  The remaining parts of README.md assume you are working in /work/fg
