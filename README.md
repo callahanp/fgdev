@@ -101,7 +101,7 @@ All fgdev directories contain scripts for working on some aspect of flightgear's
 + $FG_DEV/scenery
 + $FG_DEV/airports
 
-## Data: Repositories and Others.
+## Data: Repositories and Others
 
 All fgdev data and source code is kept outside of FG_DEV, but can be access through a symbolic link
 
@@ -109,8 +109,7 @@ All fgdev data and source code is kept outside of FG_DEV, but can be access thro
 
  $FG_DEV/trees may contain full git repos, additional worktrees, output from helper scripts and anything else you want to keep organized while working on flightgear.
 
-
-# Scripts, some with convenient aliases.
+## Scripts, some with convenient aliases
 
 Everything is done with bash scripts, and executing them is a simple as
 
@@ -134,4 +133,3 @@ v
 Parameters to these scripts and aliases specify which tree to operate on.
 
 b, or build accepts c, clean, -c or --clean as the first parameter, and if used, will remove the build and install folders, but will leave flightgear/fgdata in place.
-
