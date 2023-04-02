@@ -1,0 +1,33 @@
+#!/bin/bash
+
+cd ${FG_DEV}
+
+clean=1
+for clean_flag in c clean -c --clean; do
+  if [[ "$1" == "$clean_flag" ]];then
+    clean=0
+    shift
+    break
+  fi
+done
+tree=$1
+if [[ "$tree" == "" ]]; then 
+  tree="next"
+fi
+if [[ -d trees/$tree ]];then 
+  if [[ "$clean" == "0" ]]; then
+     helpers/clean $tree
+  fi
+  cd trees/$tree
+  ${SCRIPT_DIR}/
+  shift
+  build_command="${SCRIPT_DIR}/download_and_compile.sh -j $(nproc) -p n -G Ninja $@"
+  echo "Building with download_and_compile.sh in ${PWD}"
+  echo ${build_command}
+  time ${build_command}
+fi
+grep FAILED compilation_log.txt >/dev/null
+
+if  [[ "$?" == "0" ]]; then
+gedit compilation_log.txt&
+fi

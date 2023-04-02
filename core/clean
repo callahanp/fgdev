@@ -1,0 +1,14 @@
+#!/bin/bash
+
+cd ${FG_DEV}
+
+tree=$1
+if [[ "$tree" == "" ]]; then 
+  tree="next"
+fi
+for dir in build install/simgear install/flightgear/bin install/flightgear/lib
+do 
+  cmd="rm -rf trees/$tree/$dir"
+  echo $cmd
+  $cmd
+done

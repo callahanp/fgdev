@@ -1,0 +1,11 @@
+#!/bin/bash
+
+cd ${FG_DEV}
+
+for tree in $@
+do
+   if [[ ! -d trees/$tree  ]]; then
+     echo "Copying Recursively: trees/next to trees/$tree"
+     cp -R trees/next trees/$tree
+   fi
+done

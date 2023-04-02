@@ -1,0 +1,31 @@
+{
+	"folders": [
+		{
+			"path": "../trees/next/flightgear"
+		},
+		{
+			"path": "../trees/next/simgear"
+		},
+		{
+			"path": "../trees/next/openscenegraph"
+		},
+		{
+			"path": "../trees/next/installl/flightgear/fgdata"
+		},
+		{
+			"path": "../trees/next/build"
+		},
+		{
+			"path": "../trees/next/install"
+		}
+	],
+	"settings": {
+		"cmake.configureSettings": {}
+	},
+	"files.watcherExclude": {
+		"**/.git/objects/**": true,
+		"**/.git/subtree-cache/**": true,
+		"**/node_modules/*/**": true,
+		"fg/**": true
+	}
+}

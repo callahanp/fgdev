@@ -1,0 +1,25 @@
+#!/bin/bash
+
+cd ${FG_DEV} # should be $FG_DEV
+
+std_options="$(<${SCRIPT_DIR}/std-options.txt)"
+tree=$1 
+
+if [[ "$tree" == "" ]]; then 
+  tree="next"
+elif [[ "${tree:0:1}" == "-" ]]; then
+ tree="next"
+else
+shift
+fi
+if [[ -d trees/$tree ]];then
+  export FG_HOME="$PWD/trees/$tree/.fgfs"
+  export FG_SCENERY="$PWD/$trees/scenery/"
+  export FG_AIRCRAFT="$PWD/$trees/aircraft"
+  cd trees/$tree
+  run_command="$PWD/run_fgfs.sh ${std_options} $@"
+  echo "Running Flightgear with run_fgfs.sh in ${PWD}"
+  echo ${run_command}
+  time ${run_command}
+fi
+exit

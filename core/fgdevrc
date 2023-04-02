@@ -1,0 +1,35 @@
+SCRIPT_PATH="${BASH_SOURCE}"
+while [ -L "${SCRIPT_PATH}" ]; do
+  SCRIPT_DIR="$(cd -P "$(dirname "${SCRIPT_PATH}")" >/dev/null 2>&1 && pwd)"
+  SCRIPT_PATH="$(readlink "${SCRIPT_PATH}")"
+  [[ ${SCRIPT_PATH} != /* ]] && SCRIPT_PATH="${SCRIPT_DIR}/${SCRIPT_PATH}"
+done
+SCRIPT_PATH="$(readlink -f "${SCRIPT_PATH}")"
+SCRIPT_DIR="$(cd -P "$(dirname -- "${SCRIPT_PATH}")" >/dev/null 2>&1 && pwd)"
+# SCRIPT_DIR is guaranteed to be the directory where this script lives
+# no matter where you call it from, or how you got to it.
+cd ${SCRIPT_DIR}/..
+# This should leave us at the top level of fg_dev
+alias b=$(pwd)/core/build
+alias r=$(pwd)/core/run
+alias v=$(pwd)/core/vscode
+alias g=$(pwd)/core/gdb
+alias n=$(pwd)/helpers/new # for new window
+alias build=$(pwd)/core/build
+alias run=$(pwd)/core/run
+alias vscode=$(pwd)/core/vscode
+alias debug=$(pwd)/core/gdb
+alias new=$(pwd)/helpers/term
+alias term=$(pwd)/helpers/term
+
+export FG_DEV=$(pwd)
+if [[ -d trees ]]; then
+export  FG_DEV_TREES=$(pwd)/trees
+elif [[ -d "../trees" ]]; then
+  cd ../trees
+  export FG_DEV_TREES=$(pwd)
+  cd $FG_DEV
+fi
+for airport in PHNL KBOS KSFO EDDF BIKF; do
+alias ${airport,,}="cd /work/fg; /work/fg/core/run --airport=$airport"
+done

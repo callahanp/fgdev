@@ -1,0 +1,9 @@
+#!/bin/bash
+
+cd ${FG_DEV}
+
+tree=$1
+if [[ "$tree" == "" ]]; then 
+  tree="next"
+fi
+code core/$1.code-workspace

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+cd ${FG_DEV}
+
+# This should leave us at the top level of fg_dev
+/usr/bin/x-terminal-emulator # run whichever terminal has been selected
+

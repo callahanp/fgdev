@@ -1,0 +1,14 @@
+{
+	"files": [
+		{
+			"path": "../README.md"
+		},
+	]"folders": [
+		{
+			"path": "../"
+		}
+	],
+	"settings": {
+		"cmake.configureSettings": {}
+	}
+}

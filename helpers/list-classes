@@ -1,0 +1,30 @@
+cd $FG_DEV
+mkdir -p info
+g1='^[ \t]*class.*:[ \t]*[A-Za-z]' # classes with inheritance
+g2='^[ \t]*class[ \t]*[_A-Za-z]'   # all classes
+dirs="trees/next/flightgear/src trees/next/simgear/simgear"
+f1="info/fg-sg-classes-with-inheritance.csv"
+f2="info/fg-sg-classes.csv"
+
+grep -Re "$g1" $dirs \
+| sed -re 's/^trees\/next\///' \
+-re 's/(^[a-zA-Z0-9_/.]*)([:])([ \t]*class[ \t]*[a-zA-Z0-9_\#]*)(.*)/"\1","\3", "\4"/' \
+-re 's/[ \t]*[{]//g' \
+-re 's/[ \t]*:[ \t]*//' \
+-re 's/"[ \t]*/"/g' \
+> $f1 ; wc $f1
+
+grep -Re "$g2" $dirs \
+| sed -re 's/^trees\/next\///' \
+-re 's/(^[a-zA-Z0-9_/.]*)([:])([ \t]*class[ \t]*[a-zA-Z0-9_\#]*)(.*)/"\1","\3", "\4"/' \
+-re 's/[ \t]*[{]//g' \
+-re 's/[ \t]*:[ \t]*//' \
+-re 's/"[ \t]*/"/g' \
+> $f2 ; wc $f2
+
+libreoffice --calc info/fg-sg-classes*.csv &2>/dev/null
+
+exit
+If you see:
+ Warning: failed to launch javaldx - java may not function correctly
+install libreoffice-java-common to supress it.

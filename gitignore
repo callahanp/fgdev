@@ -1,0 +1,8 @@
+trees
+trees/**
+scenery/**
+!scenery/.placeholder
+aircraft/**
+!aircraft/.placeholder
+airports/**
+!airports/.placeholder
