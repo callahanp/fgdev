@@ -1,7 +1,7 @@
 #!/bin/bash
 
 cd ${FG_DEV}
-
+SCRIPT_DIR=${FG_DEV}/core
 clean=1
 for clean_flag in c clean -c --clean; do
   if [[ "$1" == "$clean_flag" ]];then
@@ -14,20 +14,22 @@ tree=$1
 if [[ "$tree" == "" ]]; then 
   tree="next"
 fi
-if [[ -d trees/$tree ]];then 
+shift
+if [[ -d $FG_DEV/trees/$tree ]];then 
   if [[ "$clean" == "0" ]]; then
      helpers/clean $tree
   fi
-  cd trees/$tree
-  ${SCRIPT_DIR}/
-  shift
+  cd $FG_DEV/trees/$tree
   build_command="${SCRIPT_DIR}/download_and_compile.sh -j $(nproc) -p n -G Ninja $@"
   echo "Building with download_and_compile.sh in ${PWD}"
   echo ${build_command}
   time ${build_command}
 fi
-grep FAILED compilation_log.txt >/dev/null
-
+if [[ -e compilation_log.txt ]]; then
+  grep FAILED compilation_log.txt >/dev/null
+else
+  echo "Error -- \$PWD: $PWD - no compilation_log.txt found"
+fi
 if  [[ "$?" == "0" ]]; then
 gedit compilation_log.txt&
 fi
