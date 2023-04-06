@@ -1,22 +1,22 @@
 {
 	"folders": [
 		{
-			"path": "../trees/next/flightgear"
+			"path": "flightgear"
 		},
 		{
-			"path": "../trees/next/simgear"
+			"path": "simgear"
 		},
 		{
-			"path": "../trees/next/openscenegraph"
+			"path": "openscenegraph"
 		},
 		{
-			"path": "../trees/next/installl/flightgear/fgdata"
+			"path": "installl/flightgear/fgdata"
 		},
 		{
-			"path": "../trees/next/build"
+			"path": "build"
 		},
 		{
-			"path": "../trees/next/install"
+			"path": "install"
 		}
 	],
 	"settings": {

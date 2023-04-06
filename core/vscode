@@ -6,4 +6,7 @@ tree=$1
 if [[ "$tree" == "" ]]; then 
   tree="next"
 fi
-code core/$1.code-workspace
+if [[ ! -e trees/$tree/$tree.code-workspace ]]; then
+  cp ${FG_DEV}/templates/next.code-workspace trees/$tree/$tree.code-workspace
+fi
+code trees/$tree/$tree.code-workspace
