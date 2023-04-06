@@ -1,6 +1,5 @@
 trees
 trees/**
-core/download_and_compile*
 scenery/**
 !scenery/.placeholder
 aircraft/**
