@@ -6,7 +6,11 @@ tree=$1
 if [[ "$tree" == "" ]]; then 
   tree="next"
 fi
-if [[ ! -e trees/$tree/$tree.code-workspace ]]; then
-  cp ${FG_DEV}/templates/next.code-workspace trees/$tree/$tree.code-workspace
+if [[ "$tree" == "fgdev" ]]; then
+  code ${FG_DEV}/fgdev.code-workspace
+else
+  if [[ ! -e trees/$tree/$tree.code-workspace ]]; then
+    cp ${FG_DEV}/templates/template.code-workspace trees/$tree/$tree.code-workspace
+  fi
+  code trees/$tree/$tree.code-workspace
 fi
-code trees/$tree/$tree.code-workspace
