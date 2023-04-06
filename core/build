@@ -15,12 +15,17 @@ if [[ "$tree" == "" ]]; then
   tree="next"
 fi
 shift
+if [[ "$tree" == "stable" ]]; then
+  release="-s" 
+elif [[ "$tree" == "lts" ]]; then
+  release="--lts"
+fi
 if [[ -d $FG_DEV/trees/$tree ]];then 
   if [[ "$clean" == "0" ]]; then
-     helpers/clean $tree
+     core/clean $tree
   fi
   cd $FG_DEV/trees/$tree
-  build_command="${SCRIPT_DIR}/download_and_compile.sh -j $(nproc) -p n -G Ninja $@"
+  build_command="${SCRIPT_DIR}/download_and_compile.sh -j $(nproc) -p n ${release} -G Ninja $@"
   echo "Building with download_and_compile.sh in ${PWD}"
   echo ${build_command}
   time ${build_command}
