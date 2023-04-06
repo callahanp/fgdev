@@ -2,7 +2,7 @@
 
 cd ${FG_DEV} # should be $FG_DEV
 
-std_options="$(<${SCRIPT_DIR}/std-options.txt)"
+std_options="$(<${FG_DEV}/core/std-options.txt)"
 tree=$1 
 
 if [[ "$tree" == "" ]]; then 
