@@ -10,7 +10,7 @@
 			"path": "openscenegraph"
 		},
 		{
-			"path": "installl/flightgear/fgdata"
+			"path": "install/flightgear/fgdata"
 		},
 		{
 			"path": "build"
@@ -20,12 +20,27 @@
 		}
 	],
 	"settings": {
-		"cmake.configureSettings": {}
+		"cmake.configureSettings": {},
+		"cmake.clearOutputBeforeBuild": false,
+		"cmake.skipConfigureIfCachePresent": true,
 	},
 	"files.watcherExclude": {
 		"**/.git/objects/**": true,
 		"**/.git/subtree-cache/**": true,
 		"**/node_modules/*/**": true,
 		"fg/**": true
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+			{
+				"name": "Debug",
+				"type": "gdb",
+				"request": "launch",
+				"target": "bin/fgfs",
+				"cwd": "${workspaceRoot:install}/flightgear",
+				"valuesFormatting": "parseText"
+			}
+		]
 	}
 }

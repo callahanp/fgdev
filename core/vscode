@@ -21,6 +21,9 @@ else
   export INSTALL_DIR_OSG=$trees/$tree/install/openscenegraph
   export INSTALL_DIR_SIMGEAR=$trees/$tree/install/simgear
   export INSTALL_DIR_FLIGHTGEAR=$trees/$tree/install/flightgear
+  d=$(realpath trees/$tree/install)
+  export LD_LIBRARY_PATH=$d/simgear/lib:$d/openscenegraph/lib:$d/openrti/lib:$d/plib/lib${LD_LIBRARY_PATH:+:}${LD_LIBRARY_PATH}
+
   code trees/$tree/$tree.code-workspace
   else
   if [[ ! -e trees/$tree/$tree.code-workspace ]]; then

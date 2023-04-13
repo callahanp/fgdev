@@ -1,0 +1,7 @@
+{
+  "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+  "cmake.configureArgs": [
+    "-DCMAKE_PREFIX_PATH=${env:INSTALL_DIR_OSG};${env:INSTALL_DIR_SIMGEAR}",
+    "-DCMAKE_INSTALL_PREFIX_PATH=${env:INSTALL_DIR_FLIGHTGEAR}"
+  ]
+}
