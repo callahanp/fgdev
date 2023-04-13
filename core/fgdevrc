@@ -13,14 +13,11 @@ cd ${SCRIPT_DIR}/..
 alias b=$(pwd)/core/build
 alias r=$(pwd)/core/run
 alias v=$(pwd)/core/vscode
-alias g=$(pwd)/core/gdb
-alias n=$(pwd)/helpers/new # for new window
+alias g=$(pwd)/core/gdb 
 alias build=$(pwd)/core/build
 alias run=$(pwd)/core/run
 alias vscode=$(pwd)/core/vscode
 alias debug=$(pwd)/core/gdb
-alias new=$(pwd)/helpers/term
-alias term=$(pwd)/helpers/term
 
 export FG_DEV=$(pwd)
 if [[ -d trees ]]; then

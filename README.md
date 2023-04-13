@@ -67,8 +67,8 @@ only the first line is required, but the rest are recommended.
 ```bash
 export FG_DEV=/work/fg
 # fgdevrc from the repo.
-if [ -f ~/work/fg/helpers/fgdevrc ]; then
-    . ~/work/fg/helpers/fgdevrc
+if [ -f ~/work/fg/core/fgdevrc ]; then
+    . ~/work/fg/core/fgdevrc
 fi
 # user's fgdevrc
 if [ -f ~/work/fg/trees/fgdevrc ]; then
@@ -97,7 +97,7 @@ All fgdev directories contain scripts for working on some aspect of flightgear's
 
 + $FG_DEV/aircraft
 + $FG_DEV/fgcore
-+ $FG_DEV/helpers
++ $FG_DEV/utilities
 + $FG_DEV/scenery
 + $FG_DEV/airports
 
