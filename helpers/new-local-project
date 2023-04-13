@@ -1,0 +1,48 @@
+#!/bin/bash
+#
+# new local project
+#
+# Creates a new working git/cmake/google-test/catch2 project in trees/
+# adds remote git for new project if none exists
+# adds remote gits for 3rd party git repos
+# adds personal clones for 3rd party git repos 
+#  with push to personal clones and pull from offical clones
+#
+new_local_git(){
+}
+new_github_git(){
+}
+new_local_catch2(){
+}
+new_local_google_test(){
+}
+new_sourceforge_git(){
+}
+third_party_sourceforge_git(){
+}
+third_party_github_git(){
+}
+cd $FG_DEV
+cd ..
+trees=$(pwd)/trees
+echo "pwd: $(pwd)"
+
+cd $trees
+
+repo_url=$1
+repo_git="$(basename $repo_url)"
+repo_name="${repo_git%.*}"
+echo $repo_name
+if [[ ! "$2" == "" ]]; then
+  mkdir -p $trees/$2
+  cd $trees/$2
+fi
+git clone $repo_url
+if [[ $? == 0 ]]; then
+  echo "$repo_name cloned in $(pwd)"
+else
+  echo "ls $(pwd)"
+  ls $(pwd)
+fi
+cd $FG_DEV
+echo $FG_DEV

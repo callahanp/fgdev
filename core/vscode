@@ -1,16 +1,33 @@
 #!/bin/bash
 
 cd ${FG_DEV}
+cd ../trees
+trees=$(pwd)
 
+cd -
 tree=$1
 if [[ "$tree" == "" ]]; then 
   tree="next"
 fi
 if [[ "$tree" == "fgdev" ]]; then
+  cd ${FG_DEV}
   code ${FG_DEV}/fgdev.code-workspace
 else
-  if [[ ! -e trees/$tree/$tree.code-workspace ]]; then
-    cp ${FG_DEV}/templates/template.code-workspace trees/$tree/$tree.code-workspace
-  fi
+
+  if [[ -e "$trees/$tree/install/simgear" ]]; then
+    if [[ ! -e trees/$tree/$tree.code-workspace ]]; then
+      cp ${FG_DEV}/templates/fg.code-workspace trees/$tree/$tree.code-workspace
+    fi
+  export INSTALL_DIR_OSG=$trees/$tree/install/openscenegraph
+  export INSTALL_DIR_SIMGEAR=$trees/$tree/install/simgear
+  export INSTALL_DIR_FLIGHTGEAR=$trees/$tree/install/flightgear
   code trees/$tree/$tree.code-workspace
+  else
+  if [[ ! -e trees/$tree/$tree.code-workspace ]]; then
+      cp ${FG_DEV}/templates/other.code-workspace trees/$tree/$tree.code-workspace
+  fi
+  cd $trees/$tree
+  code $tree.code-workspace
+  fi
+
 fi
