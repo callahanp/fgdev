@@ -14,8 +14,13 @@ shift
 fi
 if [[ -d trees/$tree ]];then
   export FG_HOME="$PWD/trees/$tree/.fgfs"
+  export FG_ROOT="$PWD/trees/$tree/install/flightgear/fgdata"
   export FG_SCENERY="$PWD/$trees/scenery/"
   export FG_AIRCRAFT="$PWD/$trees/aircraft"
+  echo  "FG_HOME:          $FG_HOME"
+  echo  "FG_ROOT:          $FG_ROOT"
+  echo  "FG_SCENERY:       $FG_SCENERY"
+  echo  "FG_AIRCRAFT:      $FG_AIRCRAFT"
   cd trees/$tree
   run_command="$PWD/run_fgfs.sh ${std_options} $@"
   echo "Running Flightgear with run_fgfs.sh in ${PWD}"
