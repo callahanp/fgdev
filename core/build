@@ -25,7 +25,7 @@ if [[ -d $FG_DEV/trees/$tree ]];then
      core/clean $tree
   fi
   cd $FG_DEV/trees/$tree
-  build_command="../download_and_compile.sh -j $(nproc) -p n ${release} -G Ninja $@"
+  build_command="../download_and_compile.sh -j $(nproc) -p n ${release} -G Ninja --sg-cmake-arg -DENABLE_TESTS=ON $@"
   echo "Building with download_and_compile.sh in ${PWD}"
   echo ${build_command}
   time ${build_command}
