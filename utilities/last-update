@@ -1,0 +1,44 @@
+echo $1
+terminal_width_separator(){
+  if [[ "$1" == "" ]]; then char="-"; fi
+  cols=$(tput cols)
+  x=0
+  while [ $x -lt $(tput cols) ];do echo -n $char; let x=$x+1; done; echo 
+  echo
+}
+
+show_git(){
+  if [[ ! "$1" == "" ]]; then
+    cd $1
+  fi
+  terminal_width_separator
+ pwd
+  echo "local clone of $(git config --get remote.origin.url)"
+  for branch in `git branch -r | grep -v HEAD`;do echo -e `git show --format="%ci %cr" $branch | head -n 1` \\t$branch|grep -v " year"; done | sort -r
+  git log -1 --oneline
+  echo " "
+  if [[ ! "$1" == "" ]]; then
+    cd - > /dev/null
+  fi
+ }
+
+show_gits() {
+  if [[ -e $1/.git ]]; then 
+    show_git $1
+  else  
+    for dir in $1/*; do
+      if [[ -e $dir/.git ]]; then
+        show_git $dir
+      fi
+    done
+  fi
+}
+
+if [[ "$1" != "" ]]; then
+  show_gits trees/$1
+else
+  show_git $FG_DEV
+  for dir in trees/*; do
+    show_gits $dir
+  done
+fi

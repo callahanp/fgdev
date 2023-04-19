@@ -1,5 +1,6 @@
 #!/bin/bash
 go(){
+  tree=$1
   trees=$FG_DEV/../trees
   cd $trees
   export FG_HOME="$PWD/$tree/.fgfs"
@@ -16,6 +17,8 @@ go(){
   cd    ../simgear
   echo  "Simgear:          $(git branch -v)"
   cd    $trees/$tree
+  ls -lah compilation_log,txt
+  $FG_DEV/utilities/last-update $tree
   run_command="$PWD/run_fgfs.sh ${std_options} $@"
   echo ""
   echo "Running Flightgear with run_fgfs.sh in ${PWD}"

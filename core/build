@@ -29,6 +29,7 @@ if [[ -d $FG_DEV/trees/$tree ]];then
   echo "Building with download_and_compile.sh in ${PWD}"
   echo ${build_command}
   time ${build_command}
+  $FG_DEV/utilities/last-update $tree
 fi
 if [[ -e compilation_log.txt ]]; then
   grep FAILED compilation_log.txt >/dev/null
