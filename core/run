@@ -27,7 +27,14 @@ go(){
   echo ""
   time ${run_command}
 }
-
+if [[ "${MY_CALLSIGN}" == "" ]]; then
+   echo "Please define an environment variable for your callsign"
+   echo "in your ~/.bashrc"
+   echo "for Example:"
+   echo "export MY_CALLSIGN=N0000B"
+   echo "We'll proceed with N0000B for now...."
+   export MY_CALLSIGN=N0000B
+fi
 std_options="$(cat ${FG_DEV}/core/std-options.txt \
   |sed s/\$\{IP_ADDRESS\}/$(hostname -I | cut -d ' ' -f1)/ \
   |sed s/\$\{MY_CALLSIGN\}/${MY_CALLSIGN}/)"
