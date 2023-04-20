@@ -28,7 +28,10 @@ go(){
   time ${run_command}
 }
 
-std_options="$(<${FG_DEV}/core/std-options.txt)"
+std_options="$(cat ${FG_DEV}/core/std-options.txt \
+  |sed s/\$\{IP_ADDRESS\}/$(hostname -I | cut -d ' ' -f1)/ \
+  |sed s/\$\{MY_CALLSIGN\}/${MY_CALLSIGN}/)"
+
 tree=$1 
 
 if [[ "$tree" == "" ]]; then 

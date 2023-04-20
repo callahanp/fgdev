@@ -1,1 +1,1 @@
---multiplay=in,10,192.168.1.246,5000 --callsign=N1742C --timeofday=noon --httpd=5401 --enable-terrasync --enable-real-weather-fetch --enable-horizon-effect --developer 
+--multiplay=in,${IP_ADDRESS},5000 --callsign=${MY_CALLSIGN} --timeofday=noon --httpd=5401 --enable-terrasync --enable-real-weather-fetch --enable-horizon-effect --developer 

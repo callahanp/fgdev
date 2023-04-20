@@ -75,6 +75,8 @@ if [ -f ~/work/fg/trees/fgdevrc ]; then
     . ~/work/fg/trees/fgdevrc
 fi
 done
+
+export MY_CALLSIGN="N0000B"
 ```
 
 ## Environment Variables
