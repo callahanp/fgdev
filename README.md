@@ -26,7 +26,10 @@ fgdev uses the download_and_compile.sh script to build flightgear, simgear and o
 
 ## Futures
 
-+ Modify the way download_and_compile.sh is updatd to use a clone of fgmeta instead of wget always use the latest script to build.
++ Scenery including Photoscenery and WS3.0
++ Airports
++ Aircraft
++ Modify the way download_and_compile.sh is updated to use a clone of fgmeta instead of wget always use the latest script to build.
 + Modify configurations of local clones to push to personal Sourceforge or Github Clones of flightgear, simgear and others
 + Scripts for Scenery, Aircraft and Airport development
 
