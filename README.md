@@ -3,10 +3,10 @@
 ## In brief
 
 fgdev simplifies the work of a Flightgear developer by scripting repetitive tasks
-Development Utilities for Flightgear
+
 The intent is to provide an organized set of scripts for specific workflow tasks in the development of FlightGear, SimGear, Scenery, Aircraft, Vulkan Scene Graph and OpenSceneGraph.
 
-fgdev is new and not broadly used or tested by more than one developer
+fgdev is new and not broadly used or tested by more than one developer. Expect the unexpected. Report issues.
 
 ## fg-dev Features
 
