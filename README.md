@@ -85,6 +85,18 @@ done
 
 export MY_CALLSIGN="N0000B"
 ```
+### After Installation
+
+You'll have two directories somewhere in your filesystem:
+
+├── fg
+└── trees
+
+* fg contains all the fgdev scripts and utilities you can 
+* trees, which at the moment must be named trees, contains sources for whatever you build and run using fgdev.  
+
+* You can use trees for additional projects beyond flightgear.
+
 
 ## Environment Variables
 
