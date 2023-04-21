@@ -3,10 +3,10 @@
 ## In brief
 
 fgdev simplifies the work of a Flightgear developer by scripting repetitive tasks
-Development Utilities for Flightgear
+
 The intent is to provide an organized set of scripts for specific workflow tasks in the development of FlightGear, SimGear, Scenery, Aircraft, Vulkan Scene Graph and OpenSceneGraph.
 
-fgdev is new and not broadly used or tested by more than one developer
+fgdev is new and not broadly used or tested by more than one developer. Expect the unexpected. Report issues.
 
 ## fg-dev Features
 
@@ -20,10 +20,17 @@ fg-dev provides easy ways to:
 + Produce a csv of every class in flightgear and simgear, and every class using inheritance.
 + Use Visual Studio Code to view, edit, rebuild and debug with gdb
 
+## Built on download_and_compile.sh
+
+fgdev uses the download_and_compile.sh script to build flightgear, simgear and other components.
+
 ## Futures
 
-+ Stage, commit and push changes
-+ Modify configurations of local clones to push to personal Sourceforge Clones of flightgear, simgear, etc.
++ Scenery including Photoscenery and WS3.0
++ Airports
++ Aircraft
++ Modify the way download_and_compile.sh is updated to use a clone of fgmeta instead of wget always use the latest script to build.
++ Modify configurations of local clones to push to personal Sourceforge or Github Clones of flightgear, simgear and others
 + Scripts for Scenery, Aircraft and Airport development
 
 ## Pre-requisite: Visual Studio Code
@@ -53,7 +60,7 @@ git clone <https://github.com/callahanp/fgdev.git> fg
 
 The cd and git command above would create /work/fg with the fg-dev materials.  The remaining parts of README.md assume you are working in /work/fg
 
-### Create a symbolic link for trees containing working copies of repositories
+### Create a symbolic link for trees containing working copies of git repositories
 
 ```bash
 cd fg
@@ -119,7 +126,6 @@ Everything is done with bash scripts, and executing them is a simple as
 core/wget_download_and_compile.sh
 
 core/build 
-core/build 
 core/run 
 core/vscode 
 ```
@@ -134,4 +140,5 @@ v
 
 Parameters to these scripts and aliases specify which tree to operate on.
 
-b, or build accepts c, clean, -c or --clean as the first parameter, and if used, will remove the build and install folders, but will leave flightgear/fgdata in place.
+b, or build accepts c, clean, -c or --clean as the first parameter, and if used, will remove the build and install folders, but will leave flightgear/fgdata in place.  This is not use standard option processing.  b -c next is legal, but b next -c is ignore the -c.
+
