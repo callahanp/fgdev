@@ -2,9 +2,13 @@
 
 ## In brief
 
-fgdev simplifies the work of a Flightgear developer by scripting repetitive tasks
+fgdev simplified the work of a Flightgear developer by scripting repetitive tasks
+It has been supplanted by a new effort callahanp/dev0.  Dev0 will have a "plug-in for flightgear development, but covers a wider range of development activities than just flightgear.  Dev0 borrows the concept of using a "trees" directory to hold projects, and many of the same commands and command aliases in FGDEV are present in DEV0 and operate similarly.
 
-The intent is to provide an organized set of scripts for specific workflow tasks in the development of FlightGear, SimGear, Scenery, Aircraft, Vulkan Scene Graph and OpenSceneGraph.
+-Pat Callahan July 6, 2023
+
+
+The intent was to provide an organized set of scripts for specific workflow tasks in the development of FlightGear, SimGear, Scenery, Aircraft, Vulkan Scene Graph and OpenSceneGraph.
 
 fgdev is new and not broadly used or tested by more than one developer. Expect the unexpected. Report issues.
 
