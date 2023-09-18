@@ -1,0 +1,1 @@
+--multiplay=in,${IP_ADDRESS},5000 --airport=KBED --callsign=${MY_CALLSIGN} --timeofday=noon  --httpd=5500 --enable-terrasync --enable-real-weather-fetch --enable-horizon-effect --developer --log-level=info
