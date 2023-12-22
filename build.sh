@@ -1,1 +1,1 @@
-fgmeta/download_and_compile.sh -p n -j 24 $@
+fgmeta/download_and_compile.sh -p n -j 24 -G Ninja $@ FGFS OSG SIMGEAR TERRAGEAR FGRUN FFGO ATCPIE
